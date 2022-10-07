@@ -1,9 +1,9 @@
-# Baithook
 ![baithook](baithook_text.png)  
-Get username and password dictionary from ssh brute-force attack.
+Get username and password dictionary from ssh brute-force attacks.
 # How it works
-We replace the important function `auth_password()` with a specialized one.  
-So, when brute-force attack comes, it will refuse all connection and record username & password to file.  
+We replace the important function `auth_password()` (in openssh source code) with a specialized one.  
+So, when brute-force attack comes, it will refuse all connections and record username & password to file.  
+**IMPORTANT: This can NOT be a common ssh server, it will Refuse All Connections!**
 # Installation
 Or... [docker image](https://hub.docker.com/r/catium/baithook)?
 ## Environment
@@ -20,6 +20,9 @@ edit `build.sh`, there are two variables.
 + `${openssh}` default is `openssh-9.0p1`
 + `${installDir}` default is `/baithook`
 # Usage
+For example, you can make your network like this:  
+![example](example.png)  
+This will make attack goes into Baithook, so that Baithook can record dictionary.  
 ## Commonly
 For re-exec, use `/run.sh` is ok.  
 Dictionary file will be at `/dict.txt`, and ip-address file will be at `/addr.txt`.  
