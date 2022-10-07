@@ -1,7 +1,11 @@
 # Baithook
-![](baithook_text.png)
-
+![baithook](baithook_text.png)  
+Get username and password dictionary from ssh brute-force attack.
+# How it works
+We replace the important function `auth_password()` with a specialized one.  
+So, when brute-force attack comes, it will refuse all connection and record username & password to file.  
 # Installation
+Or... [docker image](https://hub.docker.com/r/catium/baithook)?
 ## Environment
 You need a container to run CentOS.  
 As for me, I chose Docker with image `centos:8`.  
@@ -10,11 +14,19 @@ As for me, I chose Docker with image `centos:8`.
 1. uncompress the zip file(of course in container).  
 2. `sudo chmod u+x build.sh`  
 3. `sudo ./build.sh`  
-When everything is done, you will have a `/run.sh` file.  
+When everything is done, you will have a `/run.sh` file and some other file in `${installDir}`.  
+### Customize installation
+edit `build.sh`, there are two variables.
++ `${openssh}` default is `openssh-9.0p1`
++ `${installDir}` default is `/baithook`
 # Usage
+## Commonly
 For re-exec, use `/run.sh` is ok.  
-Dictionary will be at `/dict.txt`, and ip-address file will be at `/addr.txt`.  
-## format
+Dictionary file will be at `/dict.txt`, and ip-address file will be at `/addr.txt`.  
+## For docker
+`docker run -p 22:22 -itd catium/baithook:latest`  
+Make sure port `22` is forwarded.  
+## File format
 + Dictionary file format is like this:
 ```
 username pa$$w0rd
