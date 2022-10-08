@@ -38,7 +38,7 @@ As for me, I chose Docker with image `ubuntu:22.04`.
 2. `sudo chmod u+x build.sh`  
 3. `sudo ./build.sh`  
 
-The `build.sh` will automaticly install things below:
+The `build.sh` will automatically install things below:
 + c complier
 + zlib.
 + openssl(v1.1).
