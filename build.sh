@@ -134,6 +134,6 @@ chmod u+x ${runsh}
 cp LICENCE ${installpath}/
 
 # test
-bash -c "${installpath}/sshd --help"
+bash -c "${installpath}/sbin/sshd -help"
 
 echo 'restart bash to load path.'
