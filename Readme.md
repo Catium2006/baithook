@@ -1,19 +1,24 @@
 ![baithook](baithook_text.png)  
 Get username and password dictionary from ssh brute-force attacks.
+
 # How it works
 We replace the important function `auth_password()` (in openssh source code) with a specialized one.  
 So, when brute-force attack comes, it will refuse all connections and record username & password to file.  
 **IMPORTANT: This can NOT be a common ssh server, it will Refuse All Connections!**
+
 # Quick start
 For example, you can make your network like this:  
 ![example](example.png)  
 This will make attack goes into Baithook, so that Baithook can record dictionary.  
+
 ## Commonly
 For re-exec, use `${runsh}` is ok (defined in `build.sh`, default `/run.sh`).  
 Dictionary file will be at `/dict.txt`, and ip-address file will be at `/addr.txt`.  
+
 ## For docker
 `docker run -p 22:22 -itd catium/baithook:latest`  
 Make sure port `22` is forwarded.  
+
 ## File format
 + Dictionary file format is like this:
 ```
@@ -27,12 +32,21 @@ nginx nginx
 192.168.4.5
 6.7.8.9
 ```
+
+## Environment
+Images below are tested ok.
++ centos:7
++ centos:8
++ ubuntu:18.04
++ ubuntu:22.04
+
+
 # Build by your self
 Or... [docker image](https://hub.docker.com/r/catium/baithook)?
-## Environment
 You need a container to build or run Baithook.  
 As for me, I chose Docker with image `ubuntu:22.04`.  
 *make sure your software source is available*  
+
 ## Installation
 1. uncompress the zip file(of course in container).  
 2. `sudo chmod u+x build.sh`  
@@ -46,6 +60,7 @@ The `build.sh` will automatically install things below:
 + baithook.
 
 When everything is done, you will have a `${runsh}` file and some other file in `${installDir}`.  
+
 ### Customize
 edit `build.sh`, there are two variables.
 + `${pm}` default is auto detected, software package manager.
