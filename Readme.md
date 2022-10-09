@@ -48,12 +48,11 @@ As for me, I chose Docker with image `ubuntu:22.04`.
 *make sure your software source is available*  
 
 ## Installation
-1. uncompress the zip file(of course in container).  
-2. `sudo chmod u+x build.sh`  
-3. `sudo ./build.sh`  
+1. `tar -zxvf baithook-build.tar.gz` (archives are in [Releases](https://github.com/Catium2006/baithook/releases/)).  
+2. `sudo ./build.sh`  
 
 The `build.sh` will automatically install things below:
-+ c complier
++ C complier
 + zlib.
 + openssl(v1.1).
 + libperl-dev (on ubuntu)
@@ -62,7 +61,7 @@ The `build.sh` will automatically install things below:
 When everything is done, you will have a `${runsh}` file and some other file in `${installDir}`.  
 
 ### Customize
-edit `build.sh`, there are two variables.
+edit `build.sh`, there are some variables.
 + `${pm}` default is auto detected, software package manager.
 + `${cc}` default is `gcc`, c complier.
 + `${zlib}` default is `zlib-1.2.12`, version of zlib (effectes only on ubuntu).
