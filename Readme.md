@@ -70,7 +70,7 @@ edit `build.sh`, there are two variables.
 + `${openssh}` default is `openssh-9.0p1`, version of openssh to be based on.
 + `${installpath}` default is `/baithook`, path to install baithook.
 + `${runsh}` default is `/run.sh`, what command you want to use as container's daemon.
-+ `${job}` defalut is 4, make -j ${job}.
++ `${job}` default is 4, make -j ${job}.
 
 # Licence
 [Licence of OpenSSH](LICENCE)
